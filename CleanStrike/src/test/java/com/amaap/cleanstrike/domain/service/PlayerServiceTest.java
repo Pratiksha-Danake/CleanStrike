@@ -5,10 +5,10 @@ import com.amaap.cleanstrike.domain.repository.PlayerRepository;
 import com.amaap.cleanstrike.domain.repository.db.InMemoryDatabase;
 import com.amaap.cleanstrike.domain.repository.db.impl.FakeInMemoryDatabase;
 import com.amaap.cleanstrike.domain.repository.impl.InMemoryPlayerRepository;
+import com.amaap.cleanstrike.domain.service.exception.PlayerUnavailableException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerServiceTest {
     InMemoryDatabase inMemoryDatabase = new FakeInMemoryDatabase();
@@ -31,7 +31,7 @@ class PlayerServiceTest {
     }
 
     @Test
-    void shouldBeAbleToGetPlayerFromDatabaseOfGivenId() {
+    void shouldBeAbleToGetPlayerFromDatabaseOfGivenId() throws PlayerUnavailableException {
         // arrange
         int playerId = 1;
         Player expectedPlayer = playerService.createPlayer(1, 0);
@@ -41,5 +41,14 @@ class PlayerServiceTest {
 
         // assert
         assertEquals(expectedPlayer, actualPlayer);
+    }
+
+    @Test
+    void shouldThrowPlayerNotFoundExceptionWhenThereIsNoPlayerToPlay(){
+        // arrange
+        int playerId = 2;
+
+        // act && assert
+        assertThrows(PlayerUnavailableException.class,()->playerService.getPlayer(playerId));
     }
 }
