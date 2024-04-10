@@ -5,6 +5,7 @@ import com.amaap.cleanstrike.domain.repository.PlayerRepository;
 import com.amaap.cleanstrike.domain.repository.db.InMemoryDatabase;
 
 public class InMemoryPlayerRepository implements PlayerRepository {
+
     InMemoryDatabase inMemoryDatabase;
 
     public InMemoryPlayerRepository(InMemoryDatabase inMemoryDatabase) {
@@ -14,5 +15,10 @@ public class InMemoryPlayerRepository implements PlayerRepository {
     @Override
     public Player addPlayer(Player playerToAdd) {
         return inMemoryDatabase.insert(playerToAdd);
+    }
+
+    @Override
+    public Player getPlayer(int playerId) {
+        return inMemoryDatabase.getPlayer(playerId);
     }
 }

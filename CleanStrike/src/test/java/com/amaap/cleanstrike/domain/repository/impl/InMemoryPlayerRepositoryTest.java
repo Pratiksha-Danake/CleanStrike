@@ -10,12 +10,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InMemoryPlayerRepositoryTest {
+    InMemoryDatabase inMemoryDatabase = new FakeInMemoryDatabase();
+    PlayerRepository playerRepository = new InMemoryPlayerRepository(inMemoryDatabase);
+    PlayerService playerService = new PlayerService(playerRepository);
+
     @Test
     void shouldBeAbleToAddPlayerDataIntoTheDatabase() {
         // arrange
-        InMemoryDatabase inMemoryDatabase = new FakeInMemoryDatabase();
-        PlayerRepository playerRepository = new InMemoryPlayerRepository(inMemoryDatabase);
-        PlayerService playerService = new PlayerService(playerRepository);
         Player expected = playerService.createPlayer(1, 0);
         int playerId = 1;
         int totalPoints = 0;
@@ -25,5 +26,18 @@ class InMemoryPlayerRepositoryTest {
 
         // assert
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldBeAbleToGetPlayerFromDatabaseOfGivenId() {
+        // arrange
+        int playerId = 1;
+        Player expectedPlayer = playerService.createPlayer(1, 0);
+
+        // act
+        Player actualPlayer = playerRepository.getPlayer(playerId);
+
+        // assert
+        assertEquals(expectedPlayer, actualPlayer);
     }
 }
