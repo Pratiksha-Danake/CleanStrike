@@ -14,4 +14,8 @@ public class PlayerService {
         Player playerToAdd = Player.create(playerId, totalPoints);
         return playerRepository.addPlayer(playerToAdd);
     }
+
+    public Player getPlayer(int playerId) {
+        return playerRepository.getPlayer(playerId);
+    }
 }

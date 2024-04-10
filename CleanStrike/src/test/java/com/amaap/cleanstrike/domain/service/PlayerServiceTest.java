@@ -11,12 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlayerServiceTest {
+    InMemoryDatabase inMemoryDatabase = new FakeInMemoryDatabase();
+    PlayerRepository playerRepository = new InMemoryPlayerRepository(inMemoryDatabase);
+    PlayerService playerService = new PlayerService(playerRepository);
+
     @Test
     void shouldBeAbleToCreatePlayerWithGivenDetails() {
         // arrange
-        InMemoryDatabase inMemoryDatabase = new FakeInMemoryDatabase();
-        PlayerRepository playerRepository = new InMemoryPlayerRepository(inMemoryDatabase);
-        PlayerService playerService = new PlayerService(playerRepository);
         int playerId = 1;
         int totalPoints = 0;
         Player expected = playerService.createPlayer(playerId, totalPoints);
@@ -27,5 +28,18 @@ class PlayerServiceTest {
         // assert
         assertEquals(expected, actual);
         assertTrue(actual instanceof Player);
+    }
+
+    @Test
+    void shouldBeAbleToGetPlayerFromDatabaseOfGivenId() {
+        // arrange
+        int playerId = 1;
+        Player expectedPlayer = playerService.createPlayer(1, 0);
+
+        // act
+        Player actualPlayer = playerService.getPlayer(playerId);
+
+        // assert
+        assertEquals(expectedPlayer, actualPlayer);
     }
 }
