@@ -4,7 +4,6 @@ import com.amaap.cleanstrike.domain.model.entity.Player;
 import com.amaap.cleanstrike.domain.repository.PlayerRepository;
 import com.amaap.cleanstrike.domain.repository.db.InMemoryDatabase;
 import com.amaap.cleanstrike.domain.repository.db.impl.FakeInMemoryDatabase;
-import com.amaap.cleanstrike.domain.repository.impl.InMemoryPlayerRepository;
 import com.amaap.cleanstrike.domain.service.PlayerService;
 import org.junit.jupiter.api.Test;
 

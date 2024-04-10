@@ -38,11 +38,11 @@ public class PlayerTest {
         Player player4 = Player.create(1, 100);
 
         // assert && assert
-        assertTrue(player1.equals(player1));
-        assertFalse(player1.equals(null));
-        assertFalse(player1.equals(new Object()));
-        assertFalse(player1.equals(player2));
-        assertFalse(player1.equals(player3));
-        assertTrue(player1.equals(player4));
+        assertEquals(player1, player1);
+        assertNotEquals(null, player1);
+        assertNotEquals(player1, new Object());
+        assertNotEquals(player1, player2);
+        assertNotEquals(player1, player3);
+        assertEquals(player1, player4);
     }
 }
