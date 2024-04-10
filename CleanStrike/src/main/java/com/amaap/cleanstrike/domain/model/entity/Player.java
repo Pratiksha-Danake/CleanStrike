@@ -20,11 +20,11 @@ public class Player {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Player player = (Player) o;
-        return id == player.id;
+        return id == player.id && totalPoints == player.totalPoints;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, totalPoints);
     }
 }
