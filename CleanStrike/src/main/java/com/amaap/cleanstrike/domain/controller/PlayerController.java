@@ -1,7 +1,7 @@
-package com.amaap.cleanstrike.controller;
+package com.amaap.cleanstrike.domain.controller;
 
 import com.amaap.cleanstrike.domain.model.entity.Player;
-import com.amaap.cleanstrike.service.PlayerService;
+import com.amaap.cleanstrike.domain.service.PlayerService;
 
 public class PlayerController {
     private final PlayerService playerService;

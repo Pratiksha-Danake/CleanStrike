@@ -1,4 +1,4 @@
-package com.amaap.cleanstrike.repository;
+package com.amaap.cleanstrike.domain.repository;
 
 import com.amaap.cleanstrike.domain.model.entity.Player;
 

@@ -1,7 +1,7 @@
-package com.amaap.cleanstrike.service;
+package com.amaap.cleanstrike.domain.service;
 
 import com.amaap.cleanstrike.domain.model.entity.Player;
-import com.amaap.cleanstrike.repository.PlayerRepository;
+import com.amaap.cleanstrike.domain.repository.PlayerRepository;
 
 public class PlayerService {
     private final PlayerRepository playerRepository;

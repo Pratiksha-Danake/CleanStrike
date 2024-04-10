@@ -1,7 +1,7 @@
-package com.amaap.cleanstrike.repository.db.impl;
+package com.amaap.cleanstrike.domain.repository.db.impl;
 
 import com.amaap.cleanstrike.domain.model.entity.Player;
-import com.amaap.cleanstrike.repository.db.InMemoryDatabase;
+import com.amaap.cleanstrike.domain.repository.db.InMemoryDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
