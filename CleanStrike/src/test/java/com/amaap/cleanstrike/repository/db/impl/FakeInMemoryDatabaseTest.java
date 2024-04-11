@@ -56,16 +56,18 @@ class FakeInMemoryDatabaseTest {
         assertEquals(expected, actual);
     }
 
-//    @Test
-//    void shouldBeAbleToGetCarromBoardById() throws InvalidCarromCoinsException {
-//        // arrange
-//        int carromBoardId = 1;
-//        int noOfBlackCoins = 9;
-//        int noOfRedCoins = 1;
-//
-//        // act
-//        CarromBoard carromBoard = CarromBoard.create(carromBoardId, noOfBlackCoins, noOfRedCoins);
-//        inMemoryDatabase.insertCarromBoard(carromBoard);
-//        CarromBoard actual = inMemoryDatabase.getCarromBoardById(carromBoardId);
-//    }
+    @Test
+    void shouldBeAbleToGetCarromBoardById() throws InvalidCarromCoinsException {
+        // arrange
+        int carromBoardId = 1;
+        int noOfBlackCoins = 9;
+        int noOfRedCoins = 1;
+        CarromBoard expected = inMemoryDatabase.insertCarromBoard(noOfBlackCoins, noOfRedCoins);
+
+        // act
+        CarromBoard actual = inMemoryDatabase.getCarromBoardById(carromBoardId);
+
+        // assert
+        assertEquals(expected, actual);
+    }
 }

@@ -38,8 +38,9 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
 
     @Override
     public CarromBoard getCarromBoardById(int carromBoardId) {
-//        for (CarromBoard carromBoard : carromBoards)
-//            if (carromBoard.)
+        for (CarromBoard carrom : carromBoards)
+            if (carrom.getId() == carromBoardId)
+                return carrom;
         return null;
     }
 }
