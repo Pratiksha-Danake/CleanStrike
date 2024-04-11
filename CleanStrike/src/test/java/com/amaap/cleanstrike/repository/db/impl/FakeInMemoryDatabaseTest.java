@@ -1,10 +1,12 @@
 package com.amaap.cleanstrike.repository.db.impl;
 
+import com.amaap.cleanstrike.domain.model.CarromBoard;
 import com.amaap.cleanstrike.domain.model.Player;
 import com.amaap.cleanstrike.repository.PlayerRepository;
 import com.amaap.cleanstrike.repository.db.InMemoryDatabase;
 import com.amaap.cleanstrike.repository.impl.InMemoryPlayerRepository;
 import com.amaap.cleanstrike.service.PlayerService;
+import com.amaap.cleanstrike.service.exception.InvalidCarromCoinsException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,5 +39,19 @@ class FakeInMemoryDatabaseTest {
 
         // assert
         assertEquals(expectedPlayer, actualPlayer);
+    }
+
+    @Test
+    void shouldBeAbleToAddCreatedCarromBoardToDatabase() throws InvalidCarromCoinsException {
+        // arrange
+        int noOfBlackCoins = 9;
+        int noOfRedCoins = 1;
+        CarromBoard expected = CarromBoard.create(noOfBlackCoins,noOfRedCoins);
+
+        // act
+        CarromBoard actual = inMemoryDatabase.insertCarromBoard(expected);
+
+        // assert
+        assertEquals(expected, actual);
     }
 }
