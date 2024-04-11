@@ -9,6 +9,8 @@ public class CarromBoard {
     private final int id;
     private final int blackCoins;
     private final int redCoins;
+    private Player playerOne;
+    private Player playerTwo;
 
     public CarromBoard(int id, int noOfBlackCoins, int noOfRedCoins) {
         this.id = id;
@@ -24,6 +26,22 @@ public class CarromBoard {
 
     public int getId() {
         return id;
+    }
+
+    public void setPlayerOne(Player playerOne) {
+        this.playerOne = playerOne;
+    }
+
+    public void setPlayerTwo(Player playerTwo) {
+        this.playerTwo = playerTwo;
+    }
+
+    public Player getPlayerOne() {
+        return playerOne;
+    }
+
+    public Player getPlayerTwo() {
+        return playerTwo;
     }
 
     @Override

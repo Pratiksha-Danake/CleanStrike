@@ -16,5 +16,10 @@ public class InMemoryCarromBoardRepository implements CarromBoardRepository {
     public CarromBoard addCarromBoard(int noOfBlackCoins, int noOfRedCoins) throws InvalidCarromCoinsException {
         return inMemoryDatabase.insertCarromBoard(noOfBlackCoins, noOfRedCoins);
     }
+
+    @Override
+    public CarromBoard getCarromBoardById(int carromBoardId) {
+        return inMemoryDatabase.getCarromBoardById(carromBoardId);
+    }
 }
 

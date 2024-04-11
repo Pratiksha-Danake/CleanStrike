@@ -28,4 +28,19 @@ class InMemoryCarromBoardRepositoryTest {
         // assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    void shouldBeAbleToGetCarromBoardById() throws InvalidCarromCoinsException {
+        // arrange
+        int carromBoardId = 1;
+        int noOfBlackCoins = 9;
+        int noOfRedCoins = 1;
+        CarromBoard expected = carromBoardRepository.addCarromBoard(noOfBlackCoins, noOfRedCoins);
+
+        // act
+        CarromBoard actual = carromBoardRepository.getCarromBoardById(carromBoardId);
+
+        // assert
+        assertEquals(expected, actual);
+    }
 }
