@@ -16,11 +16,11 @@ public class CarromBoardController {
 
     public Response createCarromBoard(int noOfBlackCoins, int noOfRedCoins) throws InvalidCarromCoinsException {
         Response response;
-        try{
-            carromBoardService.createCarromBoard(noOfBlackCoins,noOfRedCoins);
-            response = new Response(HttpStatus.OK,"Added Carrom Board");
-        }catch (InvalidCarromCoinsException exception){
-            response = new Response(HttpStatus.BAD_REQUEST,"cannot create carrom board");
+        try {
+            carromBoardService.createCarromBoard(noOfBlackCoins, noOfRedCoins);
+            response = new Response(HttpStatus.OK, "Added Carrom Board");
+        } catch (InvalidCarromCoinsException exception) {
+            response = new Response(HttpStatus.BAD_REQUEST, "cannot create carrom board");
         }
         return response;
     }
