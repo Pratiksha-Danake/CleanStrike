@@ -44,11 +44,11 @@ class PlayerServiceTest {
     }
 
     @Test
-    void shouldThrowPlayerNotFoundExceptionWhenThereIsNoPlayerToPlay(){
+    void shouldThrowPlayerNotFoundExceptionWhenThereIsNoPlayerToPlay() {
         // arrange
         int playerId = 2;
 
         // act && assert
-        assertThrows(PlayerUnavailableException.class,()->playerService.getPlayer(playerId));
+        assertThrows(PlayerUnavailableException.class, () -> playerService.getPlayer(playerId));
     }
 }

@@ -1,19 +1,27 @@
 package com.amaap.cleanstrike.domain.model;
 
+import com.amaap.cleanstrike.domain.model.exception.InvalidCarromCoinsException;
+import com.amaap.cleanstrike.service.validator.CarromBoardValidator;
+
 import java.util.Objects;
 
 public class CarromBoard {
-    private int blackCoins;
-    private int redCoins;
+    private final int id;
+    private final int blackCoins;
+    private final int redCoins;
 
-    public CarromBoard(int noOfBlackCoins, int noOfRedCoins) {
+    public CarromBoard(int id, int noOfBlackCoins, int noOfRedCoins) {
+        this.id = id;
         this.blackCoins = noOfBlackCoins;
         this.redCoins = noOfRedCoins;
     }
 
-    public static CarromBoard create(int noOfBlackCoins, int noOfRedCoins) {
-        return new CarromBoard(noOfBlackCoins, noOfRedCoins);
+    public static CarromBoard create(int id, int noOfBlackCoins, int noOfRedCoins) throws InvalidCarromCoinsException {
+        if (!CarromBoardValidator.isValidCoins(noOfBlackCoins, noOfRedCoins))
+            throw new InvalidCarromCoinsException("Insufficient coins");
+        return new CarromBoard(id, noOfBlackCoins, noOfRedCoins);
     }
+
 
     @Override
     public boolean equals(Object o) {

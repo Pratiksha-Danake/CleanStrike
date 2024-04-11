@@ -1,7 +1,6 @@
 package com.amaap.cleanstrike.controller.dto;
 
 import com.amaap.cleanstrike.HttpStatus;
-import com.amaap.cleanstrike.controller.dto.Response;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,11 +15,11 @@ class ResponseTest {
         Object obj = new Object();
 
         // act && assert
-        assertTrue(response1.equals(response1));
-        assertFalse(response1.equals(null));
-        assertFalse(response1.equals(obj));
-        assertFalse(response1.equals(response3));
-        assertTrue(response1.equals(response2));
+        assertEquals(response1, response1);
+        assertNotEquals(null, response1);
+        assertNotEquals(response1, obj);
+        assertNotEquals(response1, response3);
+        assertEquals(response1, response2);
     }
 
     @Test

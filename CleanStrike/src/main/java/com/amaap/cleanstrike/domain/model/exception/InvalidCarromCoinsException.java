@@ -1,4 +1,4 @@
-package com.amaap.cleanstrike.service.exception;
+package com.amaap.cleanstrike.domain.model.exception;
 
 public class InvalidCarromCoinsException extends Exception {
 

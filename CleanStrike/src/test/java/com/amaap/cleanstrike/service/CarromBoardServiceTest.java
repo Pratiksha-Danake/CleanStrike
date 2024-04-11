@@ -1,11 +1,11 @@
 package com.amaap.cleanstrike.service;
 
 import com.amaap.cleanstrike.domain.model.CarromBoard;
+import com.amaap.cleanstrike.domain.model.exception.InvalidCarromCoinsException;
 import com.amaap.cleanstrike.repository.CarromBoardRepository;
 import com.amaap.cleanstrike.repository.db.InMemoryDatabase;
 import com.amaap.cleanstrike.repository.db.impl.FakeInMemoryDatabase;
 import com.amaap.cleanstrike.repository.impl.InMemoryCarromBoardRepository;
-import com.amaap.cleanstrike.service.exception.InvalidCarromCoinsException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

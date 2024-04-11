@@ -2,13 +2,12 @@ package com.amaap.cleanstrike.controller;
 
 import com.amaap.cleanstrike.HttpStatus;
 import com.amaap.cleanstrike.controller.dto.Response;
-import com.amaap.cleanstrike.domain.model.CarromBoard;
+import com.amaap.cleanstrike.domain.model.exception.InvalidCarromCoinsException;
 import com.amaap.cleanstrike.service.CarromBoardService;
-import com.amaap.cleanstrike.service.exception.InvalidCarromCoinsException;
 
 public class CarromBoardController {
 
-    private CarromBoardService carromBoardService;
+    private final CarromBoardService carromBoardService;
 
     public CarromBoardController(CarromBoardService carromBoardService) {
         this.carromBoardService = carromBoardService;

@@ -2,11 +2,11 @@ package com.amaap.cleanstrike.repository.db.impl;
 
 import com.amaap.cleanstrike.domain.model.CarromBoard;
 import com.amaap.cleanstrike.domain.model.Player;
+import com.amaap.cleanstrike.domain.model.exception.InvalidCarromCoinsException;
 import com.amaap.cleanstrike.repository.PlayerRepository;
 import com.amaap.cleanstrike.repository.db.InMemoryDatabase;
 import com.amaap.cleanstrike.repository.impl.InMemoryPlayerRepository;
 import com.amaap.cleanstrike.service.PlayerService;
-import com.amaap.cleanstrike.service.exception.InvalidCarromCoinsException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,14 +44,28 @@ class FakeInMemoryDatabaseTest {
     @Test
     void shouldBeAbleToAddCreatedCarromBoardToDatabase() throws InvalidCarromCoinsException {
         // arrange
+        int id = 1;
         int noOfBlackCoins = 9;
         int noOfRedCoins = 1;
-        CarromBoard expected = CarromBoard.create(noOfBlackCoins,noOfRedCoins);
+        CarromBoard expected = CarromBoard.create(id, noOfBlackCoins, noOfRedCoins);
 
         // act
-        CarromBoard actual = inMemoryDatabase.insertCarromBoard(expected);
+        CarromBoard actual = inMemoryDatabase.insertCarromBoard(noOfBlackCoins, noOfRedCoins);
 
         // assert
         assertEquals(expected, actual);
     }
+
+//    @Test
+//    void shouldBeAbleToGetCarromBoardById() throws InvalidCarromCoinsException {
+//        // arrange
+//        int carromBoardId = 1;
+//        int noOfBlackCoins = 9;
+//        int noOfRedCoins = 1;
+//
+//        // act
+//        CarromBoard carromBoard = CarromBoard.create(carromBoardId, noOfBlackCoins, noOfRedCoins);
+//        inMemoryDatabase.insertCarromBoard(carromBoard);
+//        CarromBoard actual = inMemoryDatabase.getCarromBoardById(carromBoardId);
+//    }
 }
